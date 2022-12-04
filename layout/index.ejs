@@ -1,0 +1,17 @@
+<section id="writing">
+    <div id="tag-cloud">
+            <div class="tag-cloud-title">
+                <% var visibleTags = 0 %>
+                <% site.tags.each(function(tag){ %>
+                  <% if (tag.length) { %>
+                    <% visibleTags += 1 %>
+                  <% } %>
+                <% }) %>
+                <%- _p('counter.tag_cloud', visibleTags) %>
+            </div>
+            <div class="tag-cloud-tags">
+              <%- tagcloud({min_font: 12, max_font: 30, amount: 300, class: 'cloud-item'}) %>
+            </div>
+          </div>
+</section>
+

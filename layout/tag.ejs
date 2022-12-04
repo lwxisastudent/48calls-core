@@ -1,0 +1,13 @@
+<img src="<%- 'profile.png' %>" itemprop="image" class="profile_img">
+
+<div id="archive">
+  <ul class="post-list">
+    <% var field_sort = theme.archive.sort_updated ? 'updated' : 'date' %>
+    <% page.posts.sort(field_sort, 'desc').each(function(post) { %>
+      <li class="post-item">
+        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+      </li>
+    <% }); %>
+  </ul>
+  <%- partial('_partial/pagination') %>
+</div>
