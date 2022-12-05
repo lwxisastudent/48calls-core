@@ -1,7 +1,12 @@
-<img src="<%- 'profile.png' %>" itemprop="image" class="profile_img">
-<center><meta>
-<time datetime="<%= date_xml(stage_date(page.tag)) %>" itemprop="datePublished"><%= date(stage_date(page.tag), config.date_format) %></time></meta>
-</center>
+<div class="archive-profile">
+<h1><%- page.tag %></h1>
+<% if(page.tag.indexOf("EP")!=-1) { %>
+<p>专辑（Extended Play）目前仅有按团区分的列表功能</p>
+<% } else {%>
+<img src="<%- 'profile.png' %>" itemprop="image">
+<p>首演于 <time datetime="<%= date_xml(stage_date(page.tag)) %>" itemprop="datePublished"><%= date(stage_date(page.tag), config.date_format) %></time></p>
+<% } %>
+</div>
 <br>
 <div>
               <%- list_posts_stage(page.posts,{stage:page.tag}) %>
