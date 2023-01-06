@@ -8,7 +8,13 @@
     <% } %>
 <% } else { %>
     <h1 class="<%= class_name %>" itemprop="name headline">
+        <% if (post.ruby!=null) { %>
+        <ruby><%- post.title %><rp>(</rp><rt><%- post.ruby %></rt><rp>)</rp></ruby>
+        <% } else if (forname(post.title)!=null) { %>
+        <ruby><%- post.title %><rp>(</rp><rt><%- forname(post.title)[0] %></rt><rp>)</rp></ruby>
+        <% } else { %>
         <%= post.title %>
+        <% } %>
     </h1>
 <% } %>
 

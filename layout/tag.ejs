@@ -1,5 +1,10 @@
 <div class="archive-profile">
+<% if(stage_forname(page.tag)) { %>
+<h1><ruby><%- page.tag %><rp>(</rp><rt><%- stage_forname(page.tag)[0]+stage_forname(page.tag)[1] %></rt><rp>)</rp></ruby></h1>
+<% } else {%>
 <h1><%- page.tag %></h1>
+<% } %>
+
 <% if(page.tag.indexOf("EP")!=-1) { %>
 <p>专辑（Extended Play）歌曲暂未完全收录 本页包含拼盘公演中选用的专辑歌曲
 <% } else {%>
@@ -7,8 +12,10 @@
 <p>首演于 <time datetime="<%= date_xml(stage_date(page.tag)) %>" itemprop="datePublished"><%= date(stage_date(page.tag), config.date_format) %></time></p>
 <% } %>
 </div>
+
 <br>
+
 <div>
-              <%- list_posts_stage(page.posts,{stage:page.tag}) %>
+<%- list_posts_stage(page.posts,{stage:page.tag}) %>
 </div>
 <br>
